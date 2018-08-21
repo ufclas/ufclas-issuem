@@ -11,8 +11,6 @@ Author: Priscilla Chapman (CLAS IT)
 Author URI: http://it.clas.ufl.edu/
 
 License: GPL2
-==================
-
 
 
 ### Version 1.2.4
