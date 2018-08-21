@@ -3,7 +3,7 @@
 Plugin Name: UF CLAS - IssueM
 Plugin URI: http://it.clas.ufl.edu/
 Description: Helper functions for IssueM.
-Version: 1.2.3
+Version: 1.2.4
 Author: Priscilla Chapman (CLAS IT)
 Author URI: http://it.clas.ufl.edu/
 License: GPL2
@@ -57,7 +57,7 @@ add_action( 'restrict_manage_posts', 'ufclas_issuem_article_filter_list' );
  * @since 1.1.0
  */
 function ufclas_issuem_article_filter( $query ) {
-	if ( is_admin() ){ 
+	if ( is_admin() ){
 		$qv = &$query->query_vars;
 		if( isset( $qv['issuem_issue'] ) ){
 			if ( ( $qv['issuem_issue'] ) && is_numeric( $qv['issuem_issue'] ) ) {
@@ -74,7 +74,7 @@ add_filter( 'parse_query','ufclas_issuem_article_filter' );
  * @since 1.1.0
  */
 function ufclas_issuem_setup(){
-	add_theme_support( 'post-formats', array( 'aside' ) );	
+	add_theme_support( 'post-formats', array( 'aside' ) );
 }
 add_action( 'after_setup_theme', 'ufclas_issuem_setup' );
 
@@ -98,7 +98,7 @@ add_filter( 'the_content_more_link', 'ufclas_issuem_readmore' );
  */
 function ufclas_issuem_issue_data() {
 	global $post;
-	
+
 	// Get the issue term object assigned to the current post or taxonomy page
 	if( is_page() ){
 		$issue_terms = get_terms( 'issuem_issue', array('slug' => get_issuem_issue_slug() ));
@@ -106,11 +106,11 @@ function ufclas_issuem_issue_data() {
 	else {
 		$issue_terms = wp_get_object_terms($post->ID, 'issuem_issue');
 	}
-	
+
 	if(!empty($issue_terms) && !is_wp_error($issue_terms)){
-		
+
 		$issue_term = $issue_terms[0];
-		
+
 		$queried_issue = array(
 			'title' => $issue_term->name,
 			'url' => get_term_link( $issue_term ),
@@ -141,7 +141,7 @@ function ufclas_issuem_posted_on() {
  */
 function ufclas_issuem_title( $title, $sep ) {
 	$issuem_settings = get_issuem_settings();
-	
+
 	if( (get_post_type() == 'article') || is_tax('issuem_issue') || is_page($issuem_settings['page_for_articles']) ){
 		$title .= get_bloginfo('name');
 	}
