@@ -1,9 +1,15 @@
 Plugin Name: UF CLAS - IssueM
+
 Plugin URI: http://it.clas.ufl.edu/
+
 Description: Helper functions for IssueM.
+
 Version: 1.2.4
+
 Author: Priscilla Chapman (CLAS IT)
+
 Author URI: http://it.clas.ufl.edu/
+
 License: GPL2
 ==================
 
